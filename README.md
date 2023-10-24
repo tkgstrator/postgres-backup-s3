@@ -12,14 +12,13 @@ services:
       POSTGRES_PASSWORD: password
 
   backup:
-    image: eeshugerman/postgres-backup-s3:16
+    image: tkgling/postgres-backup-s3:16
     environment:
-      SCHEDULE: '@weekly'     # optional
-      BACKUP_KEEP_DAYS: 7     # optional
-      PASSPHRASE: passphrase  # optional
+      SCHEDULE: '@weekly'
+      BACKUP_KEEP_DAYS: 7
       S3_REGION: region
-      S3_ACCESS_KEY_ID: key
-      S3_SECRET_ACCESS_KEY: secret
+      S3_ACCESS_KEY: key
+      S3_SECRET_KEY: secret
       S3_BUCKET: my-bucket
       S3_PREFIX: backup
       POSTGRES_HOST: postgres
