@@ -14,17 +14,18 @@ services:
   backup:
     image: tkgling/postgres-backup-s3:16
     environment:
-      SCHEDULE: '@weekly'
-      BACKUP_KEEP_DAYS: 7
-      S3_REGION: region
-      S3_ACCESS_KEY: key
-      S3_SECRET_KEY: secret
-      S3_BUCKET: my-bucket
-      S3_PREFIX: backup
-      POSTGRES_HOST: postgres
-      POSTGRES_DATABASE: dbname
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
+      SCHEDULE: $SCHEDULE 
+      BACKUP_KEEP_DAYS: $BACKUP_KEEP_DAYS
+      S3_REGION: $S3_REGION
+      S3_ACCESS_KEY: $S3_ACCESS_KEY
+      S3_SECRET_KEY: $S3_SECRET_KEY
+      S3_BUCKET: $S3_BUCKET
+      S3_PREFIX: $S3_PREFIX
+      S3_ENDPOINT: $S3_ENDPOINT
+      POSTGRES_HOST: $POSTGRES_HOST
+      POSTGRES_DATABASE: $POSTGRES_DATABASE
+      POSTGRES_USER: $POSTGRES_USER
+      POSTGRES_PASSWORD: $POSTGRES_PASSWORD
 ```
 
 - Images are tagged by the major PostgreSQL version supported: `11`, `12`, `13`, `14`, `15` or `16`.
