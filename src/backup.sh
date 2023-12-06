@@ -26,7 +26,7 @@ if [ -n "$PASSPHRASE" ]; then
   s3_uri="$s3_uri_base/${datetime}/${timestamp}.gpg"
 else
   local_file="db.dump"
-  s3_uri="$s3_uri_base/${datetime}/${timestamp}.dump"
+  s3_uri="$s3_uri_base/${datetime}/${timestamp}.sql"
 fi
 
 echo "Uploading backup to $S3_BUCKET..."
